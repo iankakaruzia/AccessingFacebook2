@@ -42,7 +42,7 @@ public class TimeService {
 	public boolean addJogadorAoTime(Integer idTime, Integer jogadorSemTime){
 		Time time = timeRepo.findOne(idTime);
 		
-		if(time.getJogadores().size() > 7){
+		if(time.getJogadores().size() == 7){
 			return false;
 		}else{
 		
@@ -70,10 +70,17 @@ public class TimeService {
 	
 	public void delTime(Integer idTime){
 		Time time = timeRepo.findOne(idTime);
-		Jogador jogador = new Jogador();
 		
-		//jojijoi
+		Jogador jogador;
+		
+		for(int i = 0; i < time.getJogadores().size(); i++){
+			jogador = time.getJogadores().get(i);
+			jogador.setTime(null);
+			
+			jogadorRepo.save(jogador);
+		}
+		
+		timeRepo.delete(time);
 	}
-	
 
 }

@@ -77,5 +77,12 @@ public class TimeController {
 		
 		return "redirect:/times/"+idTime;
 	}
+
+	@RequestMapping(path="/excluir/{idTime}")
+	public String deletaTime(@PathVariable("idTime") Integer idTime){
+		timeService.delTime(idTime);
+		
+		return "redirect:/times/";
+	}
 	
 }

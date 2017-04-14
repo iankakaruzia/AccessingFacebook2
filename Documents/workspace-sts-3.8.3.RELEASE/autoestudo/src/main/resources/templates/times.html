@@ -50,7 +50,7 @@
     						<td th:text="${time.nome}"></td>
     						<td th:text="${time.jogadores.size()}"></td>
     						<td><a class="waves-effect waves-teal btn-flat" th:href="@{${'/times/'+time.id}}">Ver Detalhes</a></td>
-    						<td><a class="waves-effect waves-teal btn-flat" href="@{${'/times/excluir/'+time.id}}">X</a></td>
+    						<td><a class="waves-effect waves-teal btn-flat" th:href="@{${'/times/excluir/'+time.id}}">X</a></td>
     					</tr>
     				</tbody>
     			</table>
